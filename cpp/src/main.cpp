@@ -14,11 +14,11 @@ void main()
 	matrix[1][0] = 3;
 	matrix[1][1] = 4;
 
-	//Проверяем определитель для матрицы 2x2.
+	//С•СЂРѕРІРµСЂВ¤РµРј РѕРїСЂРµРґРµР»РёС‚РµР»СЊ РґР»В¤ РјР°С‚СЂРёС†С‹ 2x2.
 	cout << avg_matrix::det2x2(matrix) << endl;
 	cout << endl;
 
-	//Проверяем минор для матрицы 2x2.
+	//С•СЂРѕРІРµСЂВ¤РµРј РјРёРЅРѕСЂ РґР»В¤ РјР°С‚СЂРёС†С‹ 2x2.
 	double** minor = avg_matrix::minor2x2(matrix);
 	for (int i = 0; i < len; ++i) {
 		for (int k = 0; k < len; ++k)
@@ -26,7 +26,7 @@ void main()
 		cout << endl;
 	}
 
-	//Проверяем транспонирование для матрицы 2x2.
+	//С•СЂРѕРІРµСЂВ¤РµРј С‚СЂР°РЅСЃРїРѕРЅРёСЂРѕРІР°РЅРёРµ РґР»В¤ РјР°С‚СЂРёС†С‹ 2x2.
 	cout << endl;
 	double** t = avg_matrix::transpnse2x2(minor);
 	for (int i = 0; i < len; ++i) {
@@ -37,7 +37,7 @@ void main()
 	avg_matrix::deleteNxM(minor, 2);
 	avg_matrix::deleteNxM(t, 2);
 
-	//Проверяем обратную матрицу для матрицы 2x2.
+	//С•СЂРѕРІРµСЂВ¤РµРј РѕР±СЂР°С‚РЅСѓСЋ РјР°С‚СЂРёС†Сѓ РґР»В¤ РјР°С‚СЂРёС†С‹ 2x2.
 	cout << endl;
 	double** rev = avg_matrix::inverse2x2(matrix);
 	for (int i = 0; i < len; ++i) {
@@ -46,7 +46,7 @@ void main()
 		cout << endl;
 	}
 
-	// Проверяем произведение матрицы на обратную.
+	// С•СЂРѕРІРµСЂВ¤РµРј РїСЂРѕРёР·РІРµРґРµРЅРёРµ РјР°С‚СЂРёС†С‹ РЅР° РѕР±СЂР°С‚РЅСѓСЋ.
 	cout << endl;
 	double** res = avg_matrix::multiple(rev, matrix, 2, 2, 2);
 	for (int i = 0; i < len; ++i) {
@@ -55,7 +55,7 @@ void main()
 		cout << endl;
 	}
 
-	// Проверяем произведение матрицы 2х2 на вектор 2.
+	// С•СЂРѕРІРµСЂВ¤РµРј РїСЂРѕРёР·РІРµРґРµРЅРёРµ РјР°С‚СЂРёС†С‹ 2С…2 РЅР° РІРµРєС‚РѕСЂ 2.
 	cout << endl;
 	double* v = new double[2]{1,2};
 	double* vr = avg_matrix::multipleM2x2ToV2(matrix, v);
@@ -63,7 +63,7 @@ void main()
 		cout << vr[i] << " ";
 	cout << endl;
 
-	// Проверяем произведение матрицы 2х2 на массив 3х вектор 2.
+	// С•СЂРѕРІРµСЂВ¤РµРј РїСЂРѕРёР·РІРµРґРµРЅРёРµ РјР°С‚СЂРёС†С‹ 2С…2 РЅР° РјР°СЃСЃРёРІ 3С… РІРµРєС‚РѕСЂ 2.
 	double** arrV = new double*[3];
 	for (int i = 0; i < 3; ++i)
 		arrV[i] = new double[2]{1, (double)i};
