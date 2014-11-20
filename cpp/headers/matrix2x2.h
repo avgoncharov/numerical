@@ -3,9 +3,7 @@
 
 namespace avg_matrix
 {	
-	//Умножает матрицу 2x2 на каждый вектор 2, из множества заданного первым вектором и указателем на место сразу за последним.
-	double** multipleM2x2ToArrOfV2(const double* const* m, const double* const* begin, const double* const* end);
-
+	//Квадратная матрица размером 2х2.
 	class Matrix2x2{
 	public:
 		Matrix2x2();
@@ -13,11 +11,22 @@ namespace avg_matrix
 		Matrix2x2& operator=(const Matrix2x2& source);
 		~Matrix2x2();
 
+		// Возвращает обратную матрицу.
 		Matrix2x2 inverse();
+
+		// Возвращает транспонированную матрицу.
 		Matrix2x2 transponse();
+
+		// Возвращает минор матрицы.
 		Matrix2x2 minor();
+
+		// Возвращает определитель матрицы.
 		double det();
+
+		// Возвращает ссылку на (i,j) элемент матрицы.
 		double& operator()(int i, int j);
+		
+		// Возвращает константную ссылку на (i,j) элемент матрицы.
 		const double& operator()(int i, int j) const;
 	private:
 		void Copy(const Matrix2x2& source);
@@ -27,7 +36,10 @@ namespace avg_matrix
 		double** _arr;
 	};
 
+	// Умножает матрицу на число.
 	Matrix2x2 operator*(double num, const Matrix2x2& matrix);
+
+	// Выполняет произведения квадратных матриц.
 	Matrix2x2 operator*(const Matrix2x2& lhs, const Matrix2x2& rhs);
 
 
