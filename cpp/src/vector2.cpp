@@ -22,12 +22,25 @@ void avg_matrix::Vector2::createArrAndCopyFrom(const Vector2& source)
 
 #ifdef __AVG_CPP11__
 avg_matrix::Vector2::Vector2(Vector2&& source)
-{
+{	
 	_arr = source._arr;
 
 	source._arr = 0;
 }
 
+avg_matrix::Vector2& avg_matrix::Vector2::operator=(Vector2&& source)
+{
+	if(this == &source)	
+		return *this;
+
+	if (_arr != 0)
+		delete[] _arr;
+	
+	_arr = source._arr;
+	source._arr = 0;
+
+	return *this;
+}
 #endif
 
 avg_matrix::Vector2::Vector2(const Vector2& source)

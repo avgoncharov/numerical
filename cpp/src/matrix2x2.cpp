@@ -18,6 +18,19 @@ avg_matrix::Matrix2x2::Matrix2x2(Matrix2x2&& source)
 	_arr = source._arr;
 	source._arr = 0;
 }
+
+avg_matrix::Matrix2x2& avg_matrix::Matrix2x2::operator=(Matrix2x2&& source)
+{
+	if (this == &source)
+		return *this;
+	
+	deleteArr();
+
+	_arr = source._arr;
+	source._arr = 0;
+
+	return *this;
+}
 #endif
 
 avg_matrix::Matrix2x2& avg_matrix::Matrix2x2::operator=(const Matrix2x2& source)

@@ -57,4 +57,15 @@ void main()
 	cout << endl;	
 	for (int k = 0; k < size; ++k) 
 		cout << resultVec[k]<<endl;
+
+	Vector2* vvv = new Vector2[100000];
+	for (int i = 0; i < 100000; ++i) {
+		Vector2 buf = 10 * vec;
+		Matrix2x2 bufM = 10 * m;
+		vvv[i] = bufM * buf;
+	}
+
+	cout << vvv[100000 - 1]<<endl;
+
+	cout << "Ok";
 }
