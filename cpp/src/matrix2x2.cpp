@@ -2,13 +2,24 @@
 #include<vector>
 //--------------------------------------------------------------------------------------------------
 avg_matrix::Matrix2x2::Matrix2x2(){
+	_arr = 0;
 	createArr();
 }
 
 avg_matrix::Matrix2x2::Matrix2x2(const Matrix2x2& source)
 {
+	_arr = 0;
 	Copy(source);
 }
+
+#ifdef __AVG_CPP11__
+avg_matrix::Matrix2x2::Matrix2x2(Matrix2x2&& source)
+{
+	_arr = source._arr;
+	source._arr = 0;
+}
+#endif
+
 avg_matrix::Matrix2x2& avg_matrix::Matrix2x2::operator=(const Matrix2x2& source)
 {
 	Copy(source);

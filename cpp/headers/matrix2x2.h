@@ -9,6 +9,10 @@ namespace avg_matrix
 	public:
 		Matrix2x2();
 		Matrix2x2(const Matrix2x2& source);
+#ifdef __AVG_CPP11__
+		Matrix2x2(Matrix2x2&& source);
+#endif
+
 		Matrix2x2& operator=(const Matrix2x2& source);
 		~Matrix2x2();		
 

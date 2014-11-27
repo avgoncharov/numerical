@@ -1,6 +1,7 @@
 #ifndef _AVG_VECTOR2_
 #define _AVG_VECTOR2_
 
+#define __AVG_CPP11__
 #include"common.h"
 
 namespace avg_matrix
@@ -11,6 +12,9 @@ namespace avg_matrix
 		Vector2();
 		~Vector2();
 		Vector2(const Vector2& source);
+#ifdef __AVG_CPP11__
+		Vector2(Vector2&& source);
+#endif
 		Vector2& operator=(const Vector2& source);
 
 		// Возвращает ссылку на элемент вектора (строки / столбца).
