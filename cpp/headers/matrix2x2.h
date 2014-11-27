@@ -1,5 +1,6 @@
 #ifndef _AVG_MATRIX2X2_
 #define _AVG_MATRIX2X2_
+#include"vector2.h"
 
 namespace avg_matrix
 {	
@@ -9,32 +10,35 @@ namespace avg_matrix
 		Matrix2x2();
 		Matrix2x2(const Matrix2x2& source);
 		Matrix2x2& operator=(const Matrix2x2& source);
-		~Matrix2x2();
-
-		// Возвращает обратную матрицу.
-		Matrix2x2 inverse();
-
-		// Возвращает транспонированную матрицу.
-		Matrix2x2 transponse();
-
-		// Возвращает минор матрицы.
-		Matrix2x2 minor();
-
-		// Возвращает определитель матрицы.
-		double det();
+		~Matrix2x2();		
 
 		// Возвращает ссылку на (i,j) элемент матрицы.
 		double& operator()(int i, int j);
 		
 		// Возвращает константную ссылку на (i,j) элемент матрицы.
 		const double& operator()(int i, int j) const;
+
+		// Вывод вектора в поток.
+		friend std::ostream& operator<<(std::ostream& os, const Matrix2x2& m);
 	private:
 		void Copy(const Matrix2x2& source);
 		void createArr();
 		void deleteArr();
 
-		double** _arr;
+		Vector2* _arr;
 	};
+
+	// Возвращает обратную матрицу.
+	Matrix2x2 inverse(const Matrix2x2& m);
+
+	// Возвращает транспонированную матрицу.
+	Matrix2x2 transponse(const Matrix2x2& m);
+
+	// Возвращает минор матрицы.
+	Matrix2x2 minor(const Matrix2x2& m);
+
+	// Возвращает определитель матрицы.
+	double det(const Matrix2x2& m);
 
 	// Умножает матрицу на число.
 	Matrix2x2 operator*(double num, const Matrix2x2& matrix);
@@ -42,6 +46,14 @@ namespace avg_matrix
 	// Выполняет произведения квадратных матриц.
 	Matrix2x2 operator*(const Matrix2x2& lhs, const Matrix2x2& rhs);
 
+	// Умножает строку на матрицу.
+	Vector2 operator*(const Vector2& vec, const Matrix2x2& matrix);
 
+	// Умножает матрицу на столбец.
+	Vector2 operator*(const Matrix2x2& matrix, const Vector2& vec);
+
+	// Умножает матрицу на множество столбцов ограниченных итератором begin и end. end - указывает на память сразу за последним элементом.
+	std::vector<Vector2> multiply(const Matrix2x2& matrix, const Vector2* begin, const Vector2* end);
+	
 }
 #endif

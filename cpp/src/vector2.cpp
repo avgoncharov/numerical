@@ -53,42 +53,19 @@ avg_matrix::Vector2 avg_matrix::operator*(double num, const avg_matrix::Vector2&
 	return result;
 }
 
-avg_matrix::Vector2 avg_matrix::operator*(const Vector2& vec, const Matrix2x2& matrix)
+// Сложение векторов.
+avg_matrix::Vector2 avg_matrix::operator+(const Vector2& lhs, const Vector2& rhs)
 {
 	Vector2 result;
 
-	for (int i = 0; i < 2; ++i) {
-		result(i) = 0;
-
-		for (int k = 0; k < 2; ++k) {
-			result(i) += vec(k)* matrix(k, i);
-		}
-	}
+	for (int i = 0; i < 2; ++i)
+		result(i) = lhs(i) + rhs(i);
 
 	return result;
-
 }
-avg_matrix::Vector2 avg_matrix::operator*(const Matrix2x2& matrix, const Vector2& vec)
+// Вывод вектора в поток.
+std::ostream& avg_matrix::operator<<(std::ostream& os, const Vector2& vec)
 {
-	Vector2 result;
-	
-	for (int i = 0; i < 2; ++i) {
-		result(i) = 0;
-
-		for (int k = 0; k < 2; ++k) {
-			result(i) += matrix(i, k)*vec(k);
-		}
-	}
-
-	return result; 
-}
-
-std::vector<avg_matrix::Vector2> avg_matrix::multiply(const Matrix2x2& matrix, const Vector2* begin, const Vector2* end)
-{
-	std::vector<Vector2> result;
-
-	for (const Vector2* itr = begin; itr != end; ++itr)
-		result.push_back(matrix*(*itr));
-
-	return result;
+	os << vec(0) << " " << vec(1);
+	return os;
 }
