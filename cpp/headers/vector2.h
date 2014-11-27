@@ -6,6 +6,8 @@
 
 namespace avg_matrix
 {
+	class Matrix2x2;
+
 	// Вектр (строка / столбец) размерностью 2.
 	class Vector2{
 	public:
@@ -23,19 +25,30 @@ namespace avg_matrix
 		// Возвращает константную ссылку на элемент вектора (строки / столбца).
 		const double& operator()(int i)const;
 
+		// Умножает вектор (строку / столбеце) на число.
+		friend Vector2 operator*(double num, const Vector2& vec);
+
+		// Умножает вектора (строку / столбеце) на вектор (строку / столбеце).
+		friend double operator*(const Vector2& rhs, const Vector2& lhs);
+
+		// Сложение векторов.
+		friend Vector2 operator+(const Vector2& lhs, const Vector2& rhs);
+
+		// Вывод вектора в поток.
+		friend std::ostream& operator<<(std::ostream& os, const Vector2& vec);
+
+		// Умножает строку на матрицу.
+		friend Vector2 operator*(const Vector2& vec, const Matrix2x2& matrix);
+
+		// Умножает матрицу на столбец.
+		friend Vector2 operator*(const Matrix2x2& matrix, const Vector2& vec);
+
 	private:
 		void createArrAndCopyFrom(const Vector2& source);
 		double* _arr;
 	};
 
-	// Умножает вектор (строку / столбеце) на число.
-	Vector2 operator*(double num, const Vector2& vec);
-
-	// Сложение векторов.
-	Vector2 operator+(const Vector2& lhs, const Vector2& rhs);
-
-	// Вывод вектора в поток.
-	std::ostream& operator<<(std::ostream& os, const Vector2& vec);
+	
 }
 
 

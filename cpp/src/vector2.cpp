@@ -57,10 +57,15 @@ const double& avg_matrix::Vector2::operator()(int i)const
 avg_matrix::Vector2 avg_matrix::operator*(double num, const avg_matrix::Vector2& vec)
 {
 	Vector2 result;
-	result(0) = num * vec(0);
-	result(1) = num * vec(1);
+	result(0) = num * vec._arr[0];
+	result(1) = num * vec._arr[1];
 
 	return result;
+}
+
+double avg_matrix::operator*(const Vector2& rhs, const Vector2& lhs)
+{
+	return rhs._arr[0] * lhs._arr[0] + rhs._arr[1] * lhs._arr[1];
 }
 
 // Сложение векторов.
@@ -69,13 +74,13 @@ avg_matrix::Vector2 avg_matrix::operator+(const Vector2& lhs, const Vector2& rhs
 	Vector2 result;
 
 	for (int i = 0; i < 2; ++i)
-		result(i) = lhs(i) + rhs(i);
+		result(i) = lhs._arr[i] + rhs._arr[i];
 
 	return result;
 }
 // Вывод вектора в поток.
 std::ostream& avg_matrix::operator<<(std::ostream& os, const Vector2& vec)
 {
-	os << vec(0) << " " << vec(1);
+	os << vec._arr[0] << " " << vec._arr[1];
 	return os;
 }
