@@ -58,14 +58,44 @@ void main()
 	for (int k = 0; k < size; ++k) 
 		cout << resultVec[k]<<endl;
 
-	Vector2* vvv = new Vector2[100000];
+	/*Vector2* vvv = new Vector2[100000];
 	for (int i = 0; i < 100000; ++i) {
 		Vector2 buf = 10 * vec;
 		Matrix2x2 bufM = 10 * m;
 		vvv[i] = bufM * buf;
 	}
 
-	cout << vvv[100000 - 1]<<endl;
+	cout << vvv[100000 - 1]<<endl;*/
+
+	cout << "----------------------------------------" << endl;
+
+	Vector2 lhs;
+	lhs(0) = 1;
+	lhs(1) = 2;
+	Vector2 rhs;
+	rhs(0) = 3;
+	rhs(1) = 4;
+
+	cout << (lhs + rhs) << endl;
+	cout << (lhs - rhs) << endl;
+
+
+	Matrix2x2 mlhs;
+	mlhs(0, 0) = 0;
+	mlhs(0, 1) = 1;
+	mlhs(1, 0) = 2;
+	mlhs(1, 1) = 3;
+
+	Matrix2x2 mrhs;
+	mrhs(0, 0) = 0;
+	mrhs(0, 1) = 1;
+	mrhs(1, 0) = 2;
+	mrhs(1, 1) = 3;
+
+	cout << (mlhs + mrhs) << endl;
+	cout << (mlhs - mrhs) << endl;
+
 
 	cout << "Ok";
+	
 }

@@ -91,6 +91,18 @@ avg_matrix::Vector2 avg_matrix::operator+(const Vector2& lhs, const Vector2& rhs
 
 	return result;
 }
+//Вычитание векторов.
+avg_matrix::Vector2 avg_matrix::operator-(const Vector2& lhs, const Vector2& rhs)
+{
+	Vector2 result;
+
+	for (int i = 0; i < 2; ++i)
+		result(i) = lhs._arr[i] - rhs._arr[i];
+
+	return result;
+}
+
+
 // Вывод вектора в поток.
 std::ostream& avg_matrix::operator<<(std::ostream& os, const Vector2& vec)
 {

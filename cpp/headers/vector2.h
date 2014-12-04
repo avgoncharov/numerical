@@ -36,6 +36,9 @@ namespace avg_matrix
 		// Сложение векторов.
 		friend Vector2 operator+(const Vector2& lhs, const Vector2& rhs);
 
+		//Вычитание векторов.
+		friend Vector2 operator-(const Vector2& lhs, const Vector2& rhs);
+
 		// Умножает строку на матрицу.
 		friend Vector2 operator*(const Vector2& vec, const Matrix2x2& matrix);
 
