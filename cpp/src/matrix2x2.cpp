@@ -184,6 +184,18 @@ avg_matrix::Vector2 avg_matrix::operator*(const Matrix2x2& matrix, const Vector2
 	return result;
 }
 
+avg_matrix::Matrix2x2 avg_matrix::operator+(const Matrix2x2&lhs, const Matrix2x2& rhs)
+{
+	Matrix2x2 result;
+
+	for (int i = 0; i < 2; ++i) {
+		for (int k = 0; k < 2; ++k)
+			result._arr[i][k] = lhs._arr[i][k] + rhs._arr[i][k];
+	}
+
+	return result;
+}
+
 std::vector<avg_matrix::Vector2> avg_matrix::multiply(const Matrix2x2& matrix, const Vector2* begin, const Vector2* end)
 {
 	std::vector<Vector2> result;

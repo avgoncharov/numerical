@@ -50,6 +50,8 @@ namespace avg_matrix
 		// Умножает матрицу на столбец.
 		friend Vector2 operator*(const Matrix2x2& matrix, const Vector2& vec);
 
+		friend Matrix2x2 operator+(const Matrix2x2&lhs , const Matrix2x2& rhs);
+
 		// Умножает матрицу на множество столбцов ограниченных итератором begin и end. end - указывает на память сразу за последним элементом.
 		friend std::vector<Vector2> multiply(const Matrix2x2& matrix, const Vector2* begin, const Vector2* end);
 
