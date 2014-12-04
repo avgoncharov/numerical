@@ -62,8 +62,5 @@ namespace avg_matrix
 
 		double** _arr;
 	};
-
-	
-	
 }
 #endif
