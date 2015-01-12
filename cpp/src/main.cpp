@@ -79,6 +79,10 @@ void main()
 	cout << (lhs + rhs) << endl;
 	cout << (lhs - rhs) << endl;
 
+	cout << "start clmn2row.." << endl;
+	cout << mult_clmn_on_row(lhs, rhs) << endl;
+	cout << "end clmn2row" << endl;
+
 
 	Matrix2x2 mlhs;
 	mlhs(0, 0) = 0;

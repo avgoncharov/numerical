@@ -56,9 +56,11 @@ namespace avg_matrix
 		//Вычитание матриц.
 		friend Matrix2x2 operator-(const Matrix2x2&lhs, const Matrix2x2& rhs);
 
+		//Умноежние колонки на строку.
+		friend Matrix2x2 mult_clmn_on_row(const avg_matrix::Vector2& clmn, const avg_matrix::Vector2& row);
+
 		// Умножает матрицу на множество столбцов ограниченных итератором begin и end. end - указывает на память сразу за последним элементом.
 		friend std::vector<Vector2> multiply(const Matrix2x2& matrix, const Vector2* begin, const Vector2* end);
-
 	private:
 		void Copy(const Matrix2x2& source);
 		void createArr();

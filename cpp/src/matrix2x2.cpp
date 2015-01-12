@@ -225,3 +225,15 @@ std::ostream& avg_matrix::operator<<(std::ostream& os, const Matrix2x2& m)
 
 	return os;
 }
+
+avg_matrix::Matrix2x2 avg_matrix::mult_clmn_on_row(const avg_matrix::Vector2& clmn, const avg_matrix::Vector2& row)
+{
+	Matrix2x2 result;
+
+	for (int i = 0; i < 2; ++i) {
+		for (int k = 0; k < 2; ++k)
+			result._arr[i][k] = clmn(i) * row(k);
+	}
+
+	return result;
+}
