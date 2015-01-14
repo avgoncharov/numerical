@@ -4,6 +4,14 @@ avg_matrix::Vector2::Vector2()
 {
 	_arr = new double[2];
 }
+
+avg_matrix::Vector2::Vector2(double x, double y)
+{
+	_arr = new double[2];
+	_arr[0] = x;
+	_arr[1] = y;
+}
+
 avg_matrix::Vector2::~Vector2()
 {
 	delete[] _arr;

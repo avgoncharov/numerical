@@ -1,10 +1,22 @@
 #include"../headers/matrix2x2.h"
 #include<vector>
 //--------------------------------------------------------------------------------------------------
-avg_matrix::Matrix2x2::Matrix2x2(){
+avg_matrix::Matrix2x2::Matrix2x2()
+{
 	_arr = 0;
 	createArr();
 }
+
+avg_matrix::Matrix2x2::Matrix2x2(double a00, double a01, double a10, double a11)
+{
+	_arr = 0;
+	createArr();
+	_arr[0][0] = a00;
+	_arr[0][1] = a01;
+	_arr[1][0] = a10;
+	_arr[1][1] = a11;
+}
+
 
 avg_matrix::Matrix2x2::Matrix2x2(const Matrix2x2& source)
 {

@@ -8,6 +8,7 @@ namespace avg_matrix
 	class Matrix2x2{
 	public:
 		Matrix2x2();
+		Matrix2x2(double a00, double a01, double a10, double a11);
 		Matrix2x2(const Matrix2x2& source);
 #ifdef __AVG_CPP11__
 		Matrix2x2(Matrix2x2&& source);

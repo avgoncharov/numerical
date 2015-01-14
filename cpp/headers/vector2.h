@@ -8,10 +8,11 @@ namespace avg_matrix
 {
 	class Matrix2x2;
 
-	// Вектр (строка / столбец) размерностью 2.
+	// Р’РµРєС‚СЂ (СЃС‚СЂРѕРєР° / СЃС‚РѕР»Р±РµС†) СЂР°Р·РјРµСЂРЅРѕСЃС‚СЊСЋ 2.
 	class Vector2{
 	public:
 		Vector2();
+		Vector2(double x, double y);
 		~Vector2();
 		Vector2(const Vector2& source);
 #ifdef __AVG_CPP11__
@@ -21,31 +22,31 @@ namespace avg_matrix
 		Vector2& operator=(const Vector2& source);
 		
 
-		// Возвращает ссылку на элемент вектора (строки / столбца).
+		// Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃСЃС‹Р»РєСѓ РЅР° СЌР»РµРјРµРЅС‚ РІРµРєС‚РѕСЂР° (СЃС‚СЂРѕРєРё / СЃС‚РѕР»Р±С†Р°).
 		double& operator()(int i);
 		
-		// Возвращает константную ссылку на элемент вектора (строки / столбца).
+		// Р’РѕР·РІСЂР°С‰Р°РµС‚ РєРѕРЅСЃС‚Р°РЅС‚РЅСѓСЋ СЃСЃС‹Р»РєСѓ РЅР° СЌР»РµРјРµРЅС‚ РІРµРєС‚РѕСЂР° (СЃС‚СЂРѕРєРё / СЃС‚РѕР»Р±С†Р°).
 		const double& operator()(int i)const;
 		
-		// Умножает вектора (строку / столбеце) на вектор (строку / столбеце).
+		// РЈРјРЅРѕР¶Р°РµС‚ РІРµРєС‚РѕСЂР° (СЃС‚СЂРѕРєСѓ / СЃС‚РѕР»Р±РµС†Рµ) РЅР° РІРµРєС‚РѕСЂ (СЃС‚СЂРѕРєСѓ / СЃС‚РѕР»Р±РµС†Рµ).
 		friend double operator*(const Vector2& rhs, const Vector2& lhs);
 
-		// Умножает вектор (строку / столбеце) на число.
+		// РЈРјРЅРѕР¶Р°РµС‚ РІРµРєС‚РѕСЂ (СЃС‚СЂРѕРєСѓ / СЃС‚РѕР»Р±РµС†Рµ) РЅР° С‡РёСЃР»Рѕ.
 		friend Vector2 operator*(double num, const Vector2& vec);
 
-		// Сложение векторов.
+		// РЎР»РѕР¶РµРЅРёРµ РІРµРєС‚РѕСЂРѕРІ.
 		friend Vector2 operator+(const Vector2& lhs, const Vector2& rhs);
 
-		//Вычитание векторов.
+		//Р’С‹С‡РёС‚Р°РЅРёРµ РІРµРєС‚РѕСЂРѕРІ.
 		friend Vector2 operator-(const Vector2& lhs, const Vector2& rhs);
 
-		// Умножает строку на матрицу.
+		// РЈРјРЅРѕР¶Р°РµС‚ СЃС‚СЂРѕРєСѓ РЅР° РјР°С‚СЂРёС†Сѓ.
 		friend Vector2 operator*(const Vector2& vec, const Matrix2x2& matrix);
 
-		// Умножает матрицу на столбец.
+		// РЈРјРЅРѕР¶Р°РµС‚ РјР°С‚СЂРёС†Сѓ РЅР° СЃС‚РѕР»Р±РµС†.
 		friend Vector2 operator*(const Matrix2x2& matrix, const Vector2& vec);
 
-		// Вывод вектора в поток.
+		// Р’С‹РІРѕРґ РІРµРєС‚РѕСЂР° РІ РїРѕС‚РѕРє.
 		friend std::ostream& operator<<(std::ostream& os, const Vector2& vec);
 
 
