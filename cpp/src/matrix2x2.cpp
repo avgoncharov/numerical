@@ -232,7 +232,8 @@ std::vector<avg_matrix::Vector2> avg_matrix::multiply(const Matrix2x2& matrix, c
 
 std::ostream& avg_matrix::operator<<(std::ostream& os, const Matrix2x2& m)
 {
-	os << m.to_string();
+	os << "{{ " << m._arr[0][0] << ", " << m._arr[0][1] << " }}, ";
+	os << "{{ " << m._arr[1][0] << ", " << m._arr[1][1] << " }}";
 
 	return os;
 }
@@ -252,7 +253,6 @@ avg_matrix::Matrix2x2 avg_matrix::mult_clmn_on_row(const avg_matrix::Vector2& cl
 const std::string avg_matrix::Matrix2x2::to_string() const 
 {
 	std::ostringstream os;
-	os << "{{ " << _arr[0][0] << ", " << _arr[0][1] << " }}, ";
-	os << "{{ " << _arr[1][0] << ", " << _arr[1][1] << " }}";
+	os << (*this);
 	return os.str();
 }

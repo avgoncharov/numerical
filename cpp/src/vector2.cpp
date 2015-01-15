@@ -114,13 +114,14 @@ avg_matrix::Vector2 avg_matrix::operator-(const Vector2& lhs, const Vector2& rhs
 // Вывод вектора в поток.
 std::ostream& avg_matrix::operator<<(std::ostream& os, const Vector2& vec)
 {
-	os << vec.to_string();
+	os << "{ " << vec._arr[0] << ", " << vec._arr[1] << " }";
+	
 	return os;
 }
 
 const std::string avg_matrix::Vector2::to_string() const
 {
 	std::ostringstream os;
-	os << "{ " << _arr[0] << ", " << _arr[1] << " }";
+	os << (*this);
 	return os.str();
 }
