@@ -61,7 +61,9 @@ namespace avg_matrix
 		friend Matrix2x2 mult_clmn_on_row(const avg_matrix::Vector2& clmn, const avg_matrix::Vector2& row);
 
 		// Умножает матрицу на множество столбцов ограниченных итератором begin и end. end - указывает на память сразу за последним элементом.
-		friend std::vector<Vector2> multiply(const Matrix2x2& matrix, const Vector2* begin, const Vector2* end);
+		friend std::vector<Vector2> multiply(const Matrix2x2& matrix, const Vector2* begin, const Vector2* end);		
+
+		const std::string to_string() const;
 	private:
 		void Copy(const Matrix2x2& source);
 		void createArr();
@@ -69,5 +71,7 @@ namespace avg_matrix
 
 		double** _arr;
 	};
+
+	
 }
 #endif

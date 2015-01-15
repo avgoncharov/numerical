@@ -49,6 +49,7 @@ namespace avg_matrix
 		// Вывод вектора в поток.
 		friend std::ostream& operator<<(std::ostream& os, const Vector2& vec);
 
+		const std::string to_string() const;
 
 	private:
 		void createArrAndCopyFrom(const Vector2& source);
