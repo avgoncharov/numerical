@@ -232,6 +232,7 @@ std::vector<avg_matrix::Vector2> avg_matrix::multiply(const Matrix2x2& matrix, c
 
 std::ostream& avg_matrix::operator<<(std::ostream& os, const Matrix2x2& m)
 {
+	os.precision(17);
 	os << "{{ " << m._arr[0][0] << ", " << m._arr[0][1] << " }}, ";
 	os << "{{ " << m._arr[1][0] << ", " << m._arr[1][1] << " }}";
 
