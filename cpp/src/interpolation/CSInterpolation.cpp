@@ -1,4 +1,4 @@
-#include "c:\avgoncharov\home\numerical\cpp\headers\interpolation\CSInterpolation.h"
+#include "..\..\headers\interpolation\CSInterpolation.h"
 #include <cmath>
 avg_interpolation::CSInterpolation::CSInterpolation(const double* xArr, const double* fArr, int length)
 {
